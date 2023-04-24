@@ -241,5 +241,14 @@ res = cls.predict(img)
 for i in range(0,len(img)):
     if( np.argmax(s[i]) == np.argmax(res[i]) ):
         c+=1
-print('Results on 60,000 image dataset\n','Total images : ',i,'\nCorrect predictions : ',c,'\nAccuracy : ',c*100.0/i)
+print('\nResults on 60,000 image dataset\n','Total images : ',i,'\nCorrect predictions : ',c,'\nAccuracy : ',c*100.0/i)
+
+#change the value image_index to predict the model
+image_index = 180
+test_image = img[image_index:image_index+1]
+result = cls.predict([test_image])
+temp_image = test_image.reshape(28,28)
+print('\nprediction : ',np.argmax(result))
+plt.imshow(temp_image)
+plt.show()
 
